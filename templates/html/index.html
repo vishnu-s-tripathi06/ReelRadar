@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <form action="/home" method="post"> 
+        <h1>User login/register</h1>
+
+        <!-- User ID -->
+        <input type="text" name="userid" placeholder="User ID" autocomplete="off" autofocus required>  
+
+        <!-- Password -->
+        <input type="password" name="password" placeholder="Password" autocomplete="off" required> 
+
+        <!-- Buttons -->
+         <br>
+        <button type="submit" name="action" value="login">Login</button>
+        <button type="submit" name="action" value="register">Register</button>
+    </form>
+</body>
+</html>

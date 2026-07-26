@@ -1,24 +1,20 @@
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/greet", methods=["POST","GET"])
-def greet():
-    name = request.form.get("name")
-    password = request.form.get("password")
+@app.route("/",methods=['GET','POST'])
+def index():
+        name=request.form.get("name","world")
+        return render_template("html/index.html",name=name)
 
-    if name and password:
-        return redirect(url_for("home"))   # function name, not route string
-    else:
-        return redirect(url_for("signup"))
 
-@app.route("/index")
+@app.route("/home", methods=['GET', 'POST'])
 def home():
-    return "Welcome to the Home Page!"
+    if request.method == 'POST':
+        userid = request.form.get("userid", "world")
+        action = request.form.get("action")  # "login" or "register"
+        if action=="register":
+             return render_template("html/register.html")
+   
 
-@app.route("/signup")
-def signup():
-    return "Please sign up here."
-
-if __name__ == "__main__":
-    app.run(debug=True)
+        return render_template("html/home.html", name=userid, action=action)
