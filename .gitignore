@@ -15,6 +15,7 @@ venv/
 env/
 ENV/
 
+
 # ==========================
 # SQLite Database
 # ==========================
@@ -61,7 +62,7 @@ htmlcov/
 # ==========================
 # Build / Distribution
 # ==========================
-
+Rough.py
 build/
 dist/
 *.egg-info/
